@@ -1,0 +1,24 @@
+<div class="card">
+  <h5 class="card-header">{{ title }}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{ List }}</h5>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Birthdate</th>
+          <th scope="col">active</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of UserList">
+          <td>{{ user.id}}</td>
+          <td>{{ user.name}}</td>
+          <td>{{ user.birthdate}}</td>
+          <td>{{ user.active}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
