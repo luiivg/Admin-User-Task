@@ -9,19 +9,21 @@
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">id</th>
-          <th scope="col">Name</th>
-          <th scope="col">Birthdate</th>
-          <th scope="col">active</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Fecha de Nacimiento</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Perfil</th>
+          <th scope="col">Dependencia</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let user of UserList">
-          <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.birthdate }}</td>
           <td>{{ user.active }}</td>
+          <td>{{ user.profile.name }}</td>
+          <td>{{ user.dependency.name }}</td>
           <td><a type="button" routerLink="/task" class="btn btn-secondary">Task List</a>
             <button type="button" class="btn btn-secondary" name="button">Delete</button>
           </td>

@@ -14,7 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Type;
 
@@ -33,6 +35,11 @@ public class User implements Serializable {
 	@NotNull(message = "no puede estar vacio")
 	@Temporal(TemporalType.DATE)
 	private Date birthdate;
+	
+	@NotEmpty(message ="no puede estar vacio")
+	@Size(min=4, max=20, message="el tamaño tiene que estar entre 4 y 20")
+	@Column(nullable=false, unique=true)
+	private String name;
 
 	@NotNull(message="Debe seleccionar un estado")
 	@Type(type= "org.hibernate.type.NumericBooleanType")
@@ -71,12 +78,32 @@ public class User implements Serializable {
 	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}
+	
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
 
-	public boolean isActive() {
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the active
+	 */
+	public Boolean getActive() {
 		return active;
 	}
 
-	public void setActive(boolean active) {
+	/**
+	 * @param active the active to set
+	 */
+	public void setActive(Boolean active) {
 		this.active = active;
 	}
 
